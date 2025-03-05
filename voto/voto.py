@@ -28,8 +28,43 @@ class Libretto:
         for v in self.voti:
             mystr += f"{v} \n"
         return mystr
+
     def __len__(self):
         return len(self.voti)
+
+    def calcolaMedia(self):
+        """
+        restituisce la media dei voti attualmente presenti nel libretto
+        :return: valore numerico della media, oppure ValueError in caso la lista fosse vuota
+        """
+        if len(self.voti) == 0:
+            raise ValueError("Attenzione, lista esami vuota")
+
+        v = [v1.punteggio for v1 in self.voti]
+        return sum(v)/len(v)
+
+    def getVotiByPunti(self,punti,lode):
+        """
+        restituisce una lista di esami con punteggio uguale a punti (e lode se applicabile)
+        :param punti: variabile di tipo intero che rappresenta il punteggio
+        :param lode: booleano che indica se presente la lode
+        :return: lista di voti
+        """
+        votiFiltrati = []
+        for v in self.voti:
+            if v.punteggio == punti and v.lode == lode:
+                votiFiltrati.append(v)
+        return votiFiltrati
+
+    def getVotoByName(self,nome):
+        """
+        restituisce un oggetto voto il cui campo materia è uguale a nome
+        :param nome: stringa che indica il nome della materia
+        :return: oggetto di tipo voto, oppure None in caso di voto non trovato
+        """
+        for v in self.voti:
+            if v.materia == nome:
+                return v
 
 def testVoto():
     print("Ho usato Voto in maniera standalone")

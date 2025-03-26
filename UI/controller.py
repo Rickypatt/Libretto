@@ -1,17 +1,16 @@
 from scuola import Student
-from view import View
-from voto.voto import Libretto, Voto
+from UI.view import View
+from voto.modello import Libretto
+from voto.voto import Voto
 import flet as ft
 
-
 class Controller:
-
     def __init__(self,v: View):
         self._view = v
         self._student = Student(nome="Harry", cognome="Potter", eta=11, capelli="castani", occhi="azzurri", casa="Grifondoro",
                 animale="civetta", incantesimo="Expecto Patronum")
         self._model = Libretto(self._student,[])
-        self._fillLibretto()
+        #self._fillLibretto()
 
     def handleAggiungi(self,e):
         #Raccoglie le info per creare un nuovo voto
@@ -55,9 +54,9 @@ class Controller:
         """
         return str(self._student)
 
-    def _fillLibretto(self):
-        v1 = Voto("Difesa contro le arti oscure", 25, "2022-01-30", False)
-        v2 = Voto("Babbanologia", 21, "2022-02-12", False)
-        self._model.append(v1)
-        self._model.append(v2)
-        self._model.append(Voto("Trasfigurazione", 21, "2022-06-14", False))
+    # def _fillLibretto(self):
+    #     v1 = Voto("Difesa contro le arti oscure", 25, "2022-01-30", False)
+    #     v2 = Voto("Babbanologia", 21, "2022-02-12", False)
+    #     self._model.append(v1)
+    #     self._model.append(v2)
+    #     self._model.append(Voto("Trasfigurazione", 21, "2022-06-14", False))

@@ -1,6 +1,6 @@
 import flet as ft
-from view import View
-from controller import Controller
+from UI.view import View
+from UI.controller import Controller
 
 def main(page: ft.Page):
     v = View(page)

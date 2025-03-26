@@ -23,3 +23,39 @@ if votoTrasfigurazione is None:
 else:
     print(votoTrasfigurazione.materia)
 
+print("Verifico metodo hasVoto")
+print(myLib.hasVoto(v1))
+print(myLib.hasVoto(Voto("Artimanzia",30,"2023-07-10",False)))
+
+print("Verifico metodo hasConflitto")
+print(myLib.hasConflitto(Voto("Difesa contro le arti oscure",21,"2022-01-30",False)))
+
+print("Verifico append modificata")
+myLib.append(Voto("Artimanzia",30,"2023-07-10",False))
+#myLib.append(Voto("Difesa contro le arti oscure",21,"2022-01-30",False))
+
+myLib.append(Voto("Divinazione", 27, "2021-02-08", False))
+myLib.append(Voto("Cura delle creature magiche", 26, "2021-06-14", False))
+
+print("--------------------------")
+print("Libretto originale")
+print(myLib)
+
+nuovo = myLib.creaMigliorato()
+print("Libretto nuovo")
+print(nuovo)
+
+print("----------------------------")
+odrinato = myLib.creaLibOrdinatoPerMateria()
+print("Libretto ordinato per materia")
+print(odrinato)
+
+print("----------------------------")
+ordinato2 = myLib.creaLibOrdinatoPerVoto()
+print("Libretto ordinato per voto")
+print(ordinato2)
+
+print("----------------------------")
+print("Libretto a cui ho eliminato i voti inferiori a 24")
+ordinato2.cancellaInferiori(24)
+print(ordinato2)
